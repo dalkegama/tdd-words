@@ -38,8 +38,8 @@ describe('String Calculator', () => {
         expect(words.countWords('Hello crazy \n  world')).to.equal(3);
     });
 
-    xit('should return 3 when input string count only unique words', () => {
-        expect(words.countWords('Hello world in world')).to.equal(3);
-    });
+    // xit('should return 3 when input string count only unique words', () => {
+    //     expect(words.countWords('Hello world in world')).to.equal(3);
+    // });
 
 });
