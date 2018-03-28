@@ -1,20 +1,19 @@
 export class TddWords {
 
-    // add(input: any) {
-    //     let reducer = (accumulator, currentValue) => accumulator + currentValue;
+    countWords(input: string) {
 
-    //     if (input !== null) {
-    //         let result;
-
-    //         if (input < 0 || Number.isSafeInteger(input)) {
-    //             return 'Its a negative';
-    //         } else {
-    //             return input.replace(/[^0-9\.]+/g, ' ').split(' ').map(Number).reduce(reducer);
-    //         }
-    //     }
-    //     else {
-    //         return 0;
-    //     }
-    // }
+        if (input === null || input === '' || input.replace(/[^A-z\.]+/g, '') === '') {
+            return 0;
+        }
+        if (input.split(' ').length === 1) {
+            return 1;
+        }
+        if (input.split(' ').length === 2) {
+            return 2;
+        }
+        if (input.replace(/[^A-z\.]+/g, ' ').split(' ').filter(Boolean)) {
+            return 1;
+        }
+    }
 
 }
