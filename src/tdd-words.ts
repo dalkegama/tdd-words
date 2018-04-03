@@ -4,7 +4,7 @@ export class TddWords {
         const validInput = input !== null && input !== '' && input.replace(/[^A-z\.]+/g, '') !== '';
 
         if (validInput) {
-            // console.log(input);
+            console.log(input);
 
             const stringAsArray: any[] = input.replace(/[^A-z\.]+/g, ' ').split(' ').filter(Boolean);
             const cleanUniqueArrayLength: any[] = stringAsArray.join(' ').replace(/\b[A-Z].*?\b/g, '').split(' ').filter(Boolean);
