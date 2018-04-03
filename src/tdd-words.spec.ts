@@ -42,7 +42,7 @@ describe('String Calculator', () => {
         expect(words.countWords('Hello world in world')).to.equal(3);
     });
 
-    it('should return 2 when input string input words are case insensitive', () => {
+    it('should return 2 when string input words are case insensitive', () => {
         expect(words.countWords('Hello world hello')).to.equal(2);
     });
 
