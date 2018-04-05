@@ -13,23 +13,18 @@ export class TddWords {
                 stringAsArray.filter((value, index, array) => array.indexOf(value) === index)
             );
 
-            if (stringAsArray.length === 1) {
-                return 1;
-            }
-            if (stringAsArray.length === 2) {
-                return 2;
-            }
             if (uniqueWords()) {
-                if (cleanedUniqueArray && !(/[0-9\r?\n|\r]/).test(normalizedStr)) {
+                if (stringAsArray.length === 2) {
+                    return 2;
+                }
+                if (cleanedUniqueArray.length > 0 && !(/[0-9\r?\n|\r]/).test(normalizedStr)) {
                     return cleanedUniqueArray.length;
                 }
                 return uniqueWords().length;
             }
-
         }
         else {
             return 0;
         }
     }
-
 }
