@@ -13,6 +13,7 @@ export class TddWords {
                     (offset > 0 ? '' : '') + match.toLowerCase());
             }
             let lowerCaseWordList = replaceCapsToSimple(inputStringAsArray.join(' ')).split(' ');
+
             let uniqueStringList = (): string[] => (
                 lowerCaseWordList.filter((value, index, array) => array.indexOf(value) === index)
             );
@@ -23,5 +24,4 @@ export class TddWords {
             return 0;
         }
     }
-
 }
