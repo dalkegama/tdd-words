@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import 'mocha';
 
 
-describe('String Calculator', () => {
+describe('Counting words in a sentence', () => {
     let words;
 
     beforeEach(() => {
@@ -19,7 +19,7 @@ describe('String Calculator', () => {
     });
 
     it('should return zero when input string consists whitespaces', () => {
-        expect(words.countWords(' \n\n\t\r ')).to.equal(0);
+        expect(words.countWords(' \n\n\t\r')).to.equal(0);
     });
 
     it('should return 1 when input string is a single word', () => {
@@ -44,6 +44,14 @@ describe('String Calculator', () => {
 
     it('should return 2 when string input words are case insensitive', () => {
         expect(words.countWords('Hello world hello')).to.equal(2);
+    });
+
+    it('should return 3 when string input has any punctuation ignored', () => {
+        expect(words.countWords('Hello (world) - 123.')).to.equal(3);
+    });
+
+    it('should return 4 when string input words are accent insensitive', () => {
+        expect(words.countWords('Allô? Allo est la fin.')).to.equal(4);
     });
 
 });

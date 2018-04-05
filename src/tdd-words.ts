@@ -4,10 +4,14 @@ export class TddWords {
         const validInput = input !== null && input !== '' && input.replace(/[^A-z\.]+/g, '') !== '';
 
         if (validInput) {
-            console.log(input);
 
-            const stringAsArray: any[] = input.replace(/[^A-z\.]+/g, ' ').split(' ').filter(Boolean);
-            const cleanUniqueArrayLength: any[] = stringAsArray.join(' ').replace(/\b[A-Z].*?\b/g, '').split(' ').filter(Boolean);
+            const normalizedStr = input.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            const stringAsArray: any[] = normalizedStr.replace(/[^A-z0-9\.]+/g, ' ').split(' ').filter(Boolean);
+            const cleanedUniqueArray: any[] = stringAsArray.join(' ').replace(/\b[A-Z].*?\b/g, '').split(' ').filter(Boolean);
+
+            let uniqueWords = (): any[] => (
+                stringAsArray.filter((value, index, array) => array.indexOf(value) === index)
+            );
 
             if (stringAsArray.length === 1) {
                 return 1;
@@ -15,12 +19,13 @@ export class TddWords {
             if (stringAsArray.length === 2) {
                 return 2;
             }
-            // if ((/\b[A-Z].*?\b/g).test(stringAsArray.join(' '))) {
-            //     return cleanUniqueArrayLength;
-            // }
-            if (stringAsArray.filter((value, index, array) => array.indexOf(value) === index)) {
-                return 3;
+            if (uniqueWords()) {
+                if (cleanedUniqueArray && !(/[0-9\r?\n|\r]/).test(normalizedStr)) {
+                    return cleanedUniqueArray.length;
+                }
+                return uniqueWords().length;
             }
+
         }
         else {
             return 0;
