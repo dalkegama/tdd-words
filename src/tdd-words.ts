@@ -6,25 +6,22 @@ export class TddWords {
         if (validInput) {
 
             const normalizedStr = input.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-            const stringAsArray: any[] = normalizedStr.replace(/[^A-z0-9\.]+/g, ' ').split(' ').filter(Boolean);
-            const cleanedUniqueArray: any[] = stringAsArray.join(' ').replace(/\b[A-Z].*?\b/g, '').split(' ').filter(Boolean);
+            const inputStringAsArray: string[] = normalizedStr.replace(/[^A-z0-9\.]+/g, ' ').split(' ').filter(Boolean);
 
-            let uniqueWords = (): any[] => (
-                stringAsArray.filter((value, index, array) => array.indexOf(value) === index)
+            let replaceCapsToSimple = (word): string => {
+                return word.replace(/[A-Z]/g, (match, offset, string) =>
+                    (offset > 0 ? '' : '') + match.toLowerCase());
+            }
+            let lowerCaseWordList = replaceCapsToSimple(inputStringAsArray.join(' ')).split(' ');
+            let uniqueStringList = (): string[] => (
+                lowerCaseWordList.filter((value, index, array) => array.indexOf(value) === index)
             );
 
-            if (uniqueWords()) {
-                if (stringAsArray.length === 2) {
-                    return 2;
-                }
-                if (cleanedUniqueArray.length > 0 && !(/[0-9\r?\n|\r]/).test(normalizedStr)) {
-                    return cleanedUniqueArray.length;
-                }
-                return uniqueWords().length;
-            }
+            return uniqueStringList().length;
         }
         else {
             return 0;
         }
     }
+
 }
