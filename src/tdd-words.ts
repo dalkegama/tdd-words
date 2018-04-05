@@ -8,8 +8,8 @@ export class TddWords {
             const normalizedStr = input.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             const inputStringAsList: string[] = normalizedStr.replace(/[^A-z0-9\.]+/g, ' ').split(' ').filter(Boolean);
 
-            let replaceCapsToSimple = (word): string => {
-                return word.replace(/[A-Z]/g, (match, offset, string) =>
+            let replaceCapsToSimple = (word: string): string => {
+                return word.replace(/[A-Z]/g, (match: any, offset: any, string: string) =>
                     (offset > 0 ? '' : '') + match.toLowerCase());
             }
 
