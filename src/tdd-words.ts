@@ -1,7 +1,7 @@
 export class TddWords {
 
     countWords(input: string) {
-        const validInput = input !== null && input !== '' && input.replace(/[^A-z\.]+/g, '') !== '';
+        const validInput = input !== null && input !== '' && input.trim() !== '';
 
         if (validInput) {
 
