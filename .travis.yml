@@ -24,4 +24,3 @@ git:
 
 script:
  - npm test
- - sonar-scanner.bat -Dsonar.projectKey=1e18df07-cdfb-4dbb-b316-91229c82551e -Dsonar.organization=dalkegama-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c4fab6e257cf3d2901981f0c34429f058f1d89fa
