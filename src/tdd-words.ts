@@ -1,5 +1,4 @@
 export class TddWords {
-
     countWords(input: string) {
         const validInput: boolean = input !== null && input !== '' && input.trim() !== '';
 
@@ -14,13 +13,15 @@ export class TddWords {
             return 0;
         }
     }
+
     private replaceCapsToSimple(word: string): string {
         return word.replace(/[A-Z]/g, (match: any, offset: any, string: string) =>
             (offset > 0 ? '' : '') + match.toLowerCase());
     }
 
     private uniqueStringList(lowerCaseStringList: any[]): string[] {
-        return lowerCaseStringList.filter((value, index, array) => array.indexOf(value) === index)
+        return lowerCaseStringList.filter((value, index, array) =>
+            array.indexOf(value) === index)
     }
 }
 /*******************************************************************************************************

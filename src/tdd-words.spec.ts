@@ -52,6 +52,7 @@ describe('Counting words in a sentence', () => {
 
     it('should return 4 when string input words are accent insensitive', () => {
         expect(words.countWords('Allô? Allo est la fin.')).to.equal(4);
+        expect(words.countWords(' cédille \ncedille\n\rSaül ¿üé Bláh')).to.equal(4);
     });
 
 });
