@@ -4,7 +4,7 @@ export class TddWords {
         const validInput: boolean = input !== null && input !== '' && input.trim() !== '';
 
         if (validInput) {
-            const normalizedStr = input.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            const normalizedStr: string = input.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             const normalisedStringAsList: string[] = normalizedStr.replace(/[^A-z0-9\.]+/g, ' ').split(' ').filter(Boolean);
             const lowerCaseStringList = this.replaceCapsToSimple(normalisedStringAsList.join(' ')).split(' ');
 
