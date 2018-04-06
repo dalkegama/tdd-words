@@ -2,8 +2,6 @@ language: node_js
 
 node_js:
   - 'stable'
-  - '8'
-  - '6'
 
 sudo: false
 
@@ -13,8 +11,6 @@ matrix:
 branches:
   only:
   - master
-  - release-2.7
-  - release-2.8
 
 install:
   - npm install

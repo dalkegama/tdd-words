@@ -1,6 +1,12 @@
 # Counting Words in a Sentence
 
-_TDD kata with NUnit and Shouldly. You will need NUnit 3 Test Adapter extension._
+[![Build Status](https://travis-ci.org/dalkegama/tdd-words.svg?branch=master)](https://travis-ci.org/dalkegama/tdd-words)
+
+#### To run the project
+```js
+npm install
+npm test
+```
 
 #### Create a method that, given a sentence, returns number of words in the sentence.
 
